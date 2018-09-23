@@ -23,14 +23,22 @@ $items = $connect->select($sql);
     <div class="container">
       <h1 style="margin:20px 0">従業員マスタ</h1>
       <table class="table table-striped">
-        <tr>
-          <th scope="col">社員コード</th><th scope="col">名前</th><th scope="col">性別</th><th scope="col">生年月日</th>
-        </tr>
-        <?php foreach ($items as $item): ?>
+        <thead>
           <tr>
-            <td><?php echo $item["id"] ?></td><td><?php echo $item["name"] ?></td><td><?php echo $item["gender"] ?></td><td><?php echo $item["birthday"] ?></td>
+            <th>社員コード</th><th>名前</th><th>性別</th><th>生年月日</th><th>オプション</th>
           </tr>
-        <?php endforeach; ?>
+        </thead>
+        <tbody>
+          <?php foreach ($items as $item): ?>
+            <tr>
+              <td><?php echo $item["id"] ?></td><td><?php echo $item["name"] ?></td><td><?php echo $item["gender"] ?></td><td><?php echo $item["birthday"] ?></td>
+              <td>
+                <a href="" class="btn btn-primary btn-xs">編集</a>
+                <a href="" class="btn btn-danger btn-xs">削除</a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
       </table>
     </div>
     <?php include(dirname(__FILE__).'/common/script.html') ?>
