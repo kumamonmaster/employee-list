@@ -23,17 +23,13 @@ $items = $connect->select($sql);
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>社員コード</th><th>マイナンバー</th><th>オプション</th>
+            <th>社員コード</th><th>マイナンバー</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($items as $item): ?>
             <tr>
               <td><?php echo $item["id"] ?></td><td><?php echo $item["mynumber"] ?></td>
-              <td>
-                <a href="" class="btn btn-primary btn-xs">編集</a>
-                <a href="" class="btn btn-danger btn-xs">削除</a>
-              </td>
             </tr>
           <?php endforeach; ?>
         </tbody>

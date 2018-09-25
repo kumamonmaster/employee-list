@@ -25,17 +25,13 @@ $items = $connect->select($sql);
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>社員コード</th><th>名前</th><th>性別</th><th>生年月日</th><th>オプション</th>
+            <th>社員コード</th><th>名前</th><th>性別</th><th>生年月日</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($items as $item): ?>
             <tr>
               <td><?php echo $item["id"] ?></td><td><?php echo $item["name"] ?></td><td><?php echo $item["gender"] ?></td><td><?php echo $item["birthday"] ?></td>
-              <td>
-                <a href="" class="btn btn-primary btn-xs">編集</a>
-                <a href="" class="btn btn-danger btn-xs">削除</a>
-              </td>
             </tr>
           <?php endforeach; ?>
         </tbody>
