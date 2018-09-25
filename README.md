@@ -8,12 +8,14 @@ XAMPP(PHP + MySQL)
 ### トップページ
 従業員マスタの情報と社員コードに紐づくマイナンバー情報が年齢の降順で表示される
 
-![トップ](/images/index.JPG)
+![トップページ](/images/index.JPG)
 
 ### 従業員マスタ画面
 従業員マスタの情報が社員コードの昇順で表示される
 
-![トップ](/images/employee.JPG)
+![従業員マスタ画面](/images/employee.JPG)
 
 ### 個人番号マスタ画面
 個人番号マスタの情報が社員コードの昇順で表示される
+
+![個人番号マスタ画面](/images/mynumber.JPG)
