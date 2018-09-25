@@ -5,7 +5,7 @@ $sql = "SELECT
             employee.id
             ,name
             ,CASE gender WHEN 1 THEN '男' WHEN 2 THEN '女' END AS gender
-            ,DATE_FORMAT(birthday, '%Y年%m月%d日') AS birthday
+            ,birthday
             ,mynumber
         FROM employee
         LEFT JOIN mynumber ON employee.id = mynumber.id
@@ -28,13 +28,17 @@ $items = $connect->select($sql);
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>社員コード</th><th>名前</th><th>性別</th><th>生年月日</th><th>マイナンバー</th>
+            <th>社員コード</th><th>名前</th><th>性別</th><th>生年月日</th><th>年齢</th><th>マイナンバー</th>
           </tr>
         </thead>
         <tbody>
           <?php foreach ($items as $item): ?>
+            <?php
+            $birthday = strtotime($item["birthday"]);
+            $age = floor((date("Ymd") - date("Ymd", $birthday)) / 10000);
+            ?>
             <tr>
-              <td><?php echo $item["id"] ?></td><td><?php echo $item["name"] ?></td><td><?php echo $item["gender"] ?></td><td><?php echo $item["birthday"] ?></td><td><?php echo $item["mynumber"] ?></td>
+              <td><?php echo $item["id"] ?></td><td><?php echo $item["name"] ?></td><td><?php echo $item["gender"] ?></td><td><?php echo date("Y年n月d日", $birthday) ?></td><td><?php echo $age."歳" ?></td><td><?php echo $item["mynumber"] ?></td>
             </tr>
           <?php endforeach; ?>
         </tbody>
